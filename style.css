@@ -1,161 +1,330 @@
-```css
-/* Google Fonts are loaded from index.html */
+/* ==============================
+   SpendWise Dashboard Theme
+   ============================== */
 
-/* General page styling */
+:root {
+    --brand-color: #1e3a8a;
+    --accent-color: #2563eb;
+    --surface-color: #ffffff;
+    --background-color: #f1f5f9;
+    --primary-text: #1e293b;
+    --secondary-text: #64748b;
+    --border-color: #dbe3ec;
+    --sidebar-text: #e2e8f0;
+}
+
+/* ==============================
+   General Styling
+   ============================== */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    padding: 30px;
-    background-color: #f1f5f9;
-    color: #1e293b;
+    background-color: var(--background-color);
+    color: var(--primary-text);
     font-family: "Open Sans", sans-serif;
 }
 
-/* Page heading card */
-.page-heading {
-    max-width: 1000px;
-    margin: 0 auto 25px;
-    padding: 30px;
-    background-color: #ffffff;
-    border: 1px solid #dbe3ec;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+/* ==============================
+   Main Grid Layout
+   ============================== */
+
+.dashboard {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 240px 1fr;
 }
 
-.page-heading h1 {
-    margin: 0 0 10px;
-    color: #1e3a8a;
-    font-family: "Poppins", sans-serif;
-    font-size: 32px;
-}
+/* ==============================
+   Sidebar
+   ============================== */
 
-.page-heading p {
-    margin: 0;
-    color: #64748b;
-}
-
-/* Card styling */
-.card {
-    max-width: 1000px;
-    margin: 0 auto 25px;
-    padding: 25px;
-    background-color: #ffffff;
-    border: 1px solid #dbe3ec;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.card h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: #1e3a8a;
-    font-family: "Poppins", sans-serif;
-    font-size: 22px;
-}
-
-/* Form styling */
-form {
+.sidebar {
+    background-color: var(--brand-color);
+    padding: 25px 18px;
     display: flex;
     flex-direction: column;
 }
 
-label {
-    margin-bottom: 6px;
-    font-weight: 600;
+.logo {
+    margin-bottom: 35px;
 }
 
-input,
-select {
-    margin-bottom: 18px;
-    padding: 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    font-family: "Open Sans", sans-serif;
-    font-size: 15px;
-    box-sizing: border-box;
-}
-
-input:focus,
-select:focus {
-    outline: none;
-    border-color: #2563eb;
-}
-
-/* Button styling */
-button {
-    padding: 12px 20px;
-    background-color: #2563eb;
+.logo h2 {
+    margin: 0 0 5px;
     color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #1e40af;
-}
-
-/* Expense table */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    border: 1px solid #cbd5e1;
-}
-
-th {
-    padding: 14px;
-    background-color: #1e3a8a;
-    color: #ffffff;
-    border: 1px solid #1e3a8a;
-    text-align: left;
     font-family: "Poppins", sans-serif;
 }
 
-td {
-    padding: 14px;
-    border: 1px solid #cbd5e1;
+.logo p {
+    margin: 0;
+    color: var(--sidebar-text);
+    font-size: 13px;
 }
 
-/* Alternating table rows */
-tbody tr:nth-child(even) {
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-item {
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 200ms ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
+
+/* ==============================
+   Main Content
+   ============================== */
+
+.main-content {
+    padding: 30px;
+}
+
+/* ==============================
+   Header
+   ============================== */
+
+.header {
+    margin-bottom: 25px;
+    padding: 22px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.header h1 {
+    margin: 0 0 5px;
+    color: var(--brand-color);
+    font-family: "Poppins", sans-serif;
+}
+
+.header p {
+    margin: 0;
+    color: var(--secondary-text);
+}
+
+.user-info {
+    padding: 10px 15px;
+    border-radius: 8px;
     background-color: #eff6ff;
+    color: var(--accent-color);
+    font-weight: 600;
 }
 
-tbody tr:nth-child(odd) {
-    background-color: #ffffff;
+/* ==============================
+   Summary Section
+   ============================== */
+
+.summary {
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-/* Table hover effect */
-tbody tr:hover {
-    background-color: #dbeafe;
+.summary > div {
+    padding: 20px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
 }
 
-/* Make the page responsive */
-@media (max-width: 600px) {
-    body {
-        padding: 15px;
+.summary p {
+    margin: 0 0 8px;
+    color: var(--secondary-text);
+}
+
+.summary h2 {
+    margin: 0;
+    color: var(--brand-color);
+    font-family: "Poppins", sans-serif;
+}
+
+/* ==============================
+   Dashboard Section
+   ============================== */
+
+.dashboard-section {
+    margin-bottom: 30px;
+}
+
+.section-heading {
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    margin: 0 0 5px;
+    font-family: "Poppins", sans-serif;
+    color: var(--primary-text);
+}
+
+.section-heading p {
+    margin: 0;
+    color: var(--secondary-text);
+}
+
+/* ==============================
+   Category Cards
+   ============================== */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    min-height: 180px;
+    padding: 22px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition:
+        transform 200ms ease,
+        box-shadow 200ms ease;
+}
+
+/* Hover interaction */
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+/* Keyboard focus interaction */
+.card:focus {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card h3 {
+    margin: 0;
+    color: var(--brand-color);
+    font-family: "Poppins", sans-serif;
+}
+
+.icon {
+    font-size: 28px;
+}
+
+.card-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card-bottom p {
+    margin: 0;
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
+.card-bottom strong {
+    color: var(--primary-text);
+    font-size: 22px;
+    font-family: "Poppins", sans-serif;
+}
+
+/* ==============================
+   Responsive Design
+   ============================== */
+
+@media (max-width: 768px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
     }
 
-    .page-heading,
-    .card {
-        padding: 18px;
+    .sidebar {
+        padding: 20px;
     }
 
-    .page-heading h1 {
-        font-size: 26px;
+    .navigation {
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
-    table {
-        font-size: 13px;
+    .nav-item {
+        flex: 1 1 120px;
+        text-align: center;
     }
 
-    th,
-    td {
-        padding: 9px;
+    .main-content {
+        padding: 20px;
+    }
+
+    .summary {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
-```
+
+/* ==============================
+   Dark Theme Stretch Goal
+   ============================== */
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --brand-color: #60a5fa;
+        --accent-color: #3b82f6;
+        --surface-color: #1e293b;
+        --background-color: #0f172a;
+        --primary-text: #f8fafc;
+        --secondary-text: #cbd5e1;
+        --border-color: #334155;
+        --sidebar-text: #e2e8f0;
+    }
+
+    .sidebar {
+        background-color: #020617;
+    }
+
+    .user-info {
+        background-color: #172554;
+        color: #bfdbfe;
+    }
+
+    .card:hover,
+    .card:focus {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    }
+}
